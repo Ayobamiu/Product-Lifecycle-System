@@ -2,7 +2,15 @@ const Products = require('../products/products');
 
 class Factory {
     constructor() {
-        this.currentStage = new Products(this);
+        this._currentStage = new Products(this);
+    }
+
+    readFile() {
+        // require('fs').readFileSync('../Product-Input', 'utf8').split('\n').forEach(line => {
+        //     let data = line.replace(/[^\w\s]/gm, '').replace(/\s\s+/gm, ' ');
+        //     console.log(data);
+        // });
+        return true;
     }
 
     nextStage(stage) {
@@ -12,9 +20,11 @@ class Factory {
     }
 
     start() {
-        this.currentStage.go();
+        this._currentStage.go();
+        this.readFile();
         return true
     }
+
 }
 
 module.exports = Factory;
