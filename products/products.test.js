@@ -2,6 +2,6 @@ const Product = require('./products');
 
 
 test('check if state changes',() => {
-    const products = new Product();
-    expect(products.go()).toEqual(true);
+    const product = new Product();
+    expect(product.go()).toEqual(true);
 })
