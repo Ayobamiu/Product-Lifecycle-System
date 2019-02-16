@@ -1,7 +1,8 @@
 const Product = require('./products');
+const Factory = require('../factory/factory');
 
 
 test('check if state changes',() => {
-    const product = new Product();
-    expect(product.go()).toEqual(true);
+    const product = new Product(new Factory('Tin Tomatoes', 'Retailer'));
+    expect(product.go('Tin Tomatoes')).toEqual(true);
 })
