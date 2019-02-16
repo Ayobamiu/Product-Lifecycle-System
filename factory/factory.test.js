@@ -1,30 +1,26 @@
 const Factory = require('./factory');
+const Producer = require('../products/products');
 
 
 
 test('check if state changes',() => {
-    const factory = new Factory('', 'Producer');
+    const factory = new Factory('Rice', 'Producer');
     expect(factory.start()).toEqual(true);
 })
 
 test('check if state changes',() => {
-    const factory = new Factory('', 'Retailer');
+    const factory = new Factory('Milk', 'Retailer');
     expect(factory.start()).toEqual(true);
 })
 
 test('check if state changes',() => {
-    const factory = new Factory('', 'Consumer');
+    const factory = new Factory('Hair cream', 'Consumer');
     expect(factory.start()).toEqual(true);
 })
 
 test('check if state changes',() => {
-    const factory = new Factory('', 'Recycler');
+    const factory = new Factory('Condoms', 'Recycler');
     expect(factory.start()).toEqual(true);
 })
 
-
-test('check if state changes',() => {
-    const factory = new Factory();
-    expect(factory.nextStage()).toEqual(true);
-})
 
