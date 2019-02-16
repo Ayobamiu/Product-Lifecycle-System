@@ -1,27 +1,25 @@
-const Products = require('../products/products');
+const Product = require('../products/products');
+const Retailer = require('../retailer/retailers');
+const Consumer = require('../consumers/consumers');
+const Recycler = require('../recycler/recyclers');
 
 class Factory {
-    constructor() {
-        this._currentStage = new Products(this);
+    constructor(product, stage) {
+        this.product = product
+        this._currentStage = stage === 'Product' ? new Product(this) : (stage === 'Retailer' ? 
+        new Retailer(this) : (stage === 'Consumer' ? new Consumer(this) : new Recycler(this)));
     }
 
-    readFile() {
-        // require('fs').readFileSync('../Product-Input', 'utf8').split('\n').forEach(line => {
-        //     let data = line.replace(/[^\w\s]/gm, '').replace(/\s\s+/gm, ' ');
-        //     console.log(data);
-        // });
-        return true;
-    }
 
     nextStage(stage) {
-        // this.currentStage = stage;
+        this.currentStage = stage;
         // this.currentStage.go();
         return true;
     }
 
     start() {
-        this._currentStage.go();
-        this.readFile();
+       
+        this._currentStage.go(this.product);
         return true
     }
 

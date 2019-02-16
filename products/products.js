@@ -1,11 +1,13 @@
+const Retailer = require('../retailer/retailers');
+
 class Product {
     constructor(stage) {
         this.stage = stage;
     }
 
-    go(product, newStage) {
-        console.log('----- hehhehehheheh ----');
-        // this.stage.nextStage(new newStage(this.stage));
+    go(product) {
+        console.log(`Product ----- hehhehehheheh ----${product}`);
+        this.stage.nextStage(new Retailer(this.stage));
         return true;
     }
 }
