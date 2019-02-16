@@ -1,4 +1,5 @@
-const Product = require('../products/products')
+const fs = require('fs');
+
 
 class Recycler {
     constructor(stage) {
@@ -6,7 +7,10 @@ class Recycler {
     }
 
     go(product) {
-        console.log(`Recycler ----- hehhehehheheh ----${product}`);
+        const content = `Recycled --- ${product} \n`;
+        fs.appendFileSync("input.txt", content);
+        console.log(content);
+
         return true;
     }
 }
