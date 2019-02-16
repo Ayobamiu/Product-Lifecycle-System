@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const Retailer = require('../retailer/retailers');
 
 class Product {
@@ -6,10 +8,14 @@ class Product {
     }
 
     go(product) {
-        console.log(`Product ----- hehhehehheheh ----${product}`);
+        const content = `Produced --- ${product} \n`;
+        fs.appendFileSync("input.txt", content);
+        console.log(content);
+    
         this.stage.nextStage(new Retailer(this.stage));
         return true;
     }
+
 }
 
 
