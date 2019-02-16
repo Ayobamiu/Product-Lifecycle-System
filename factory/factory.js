@@ -15,8 +15,8 @@ class Factory {
 
 
     nextStage(stage) {
-        this.currentStage = stage;
-        this.currentStage.go(this.product);
+        this._currentStage = stage;
+        this._currentStage.go(this.product);
         return true;
     }
 
@@ -26,16 +26,6 @@ class Factory {
         return true
     }
 
-    // write(content, path) {
-    //     fs.writeFile(path, content, (err) => {  
-    //         // throws an error, you could also catch it here
-    //         if (err) throw err;
-        
-    //         // success case, the file was saved
-    //         console.log('Lyric saved!');
-            
-    //     });
-    // }
 
 }
 
